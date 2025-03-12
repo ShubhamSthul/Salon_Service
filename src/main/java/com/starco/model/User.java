@@ -34,7 +34,7 @@ public class User {
     @NotBlank(message = "role is mandatory")
     private String role;
     @CreationTimestamp
-    private LocalDateTime cratedAt;
+    private LocalDateTime createdAt;
     @UpdateTimestamp
     private LocalDateTime updateAt;
     @NotBlank(message = "password is mandatory")
@@ -51,7 +51,7 @@ public class User {
         this.email = email;
         this.phone = phone;
         this.role = role;
-        this.cratedAt = cratedAt;
+        this.createdAt = cratedAt;
         this.updateAt = updateAt;
     }
 
