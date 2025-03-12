@@ -1,7 +1,9 @@
 package com.starco.controller;
 
+import com.starco.exception.UserException;
 import com.starco.model.User;
 import com.starco.repository.UserRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +16,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
     @PostMapping("/api/users")
-    public User createUser(@RequestBody User user){
+    public User createUser(@RequestBody @Valid User user){
         return userRepository.save(user);
     }
     @GetMapping("/api/users")
@@ -28,7 +30,7 @@ public class UserController {
         if(otp.isPresent()){
             return otp.get();
         }
-        throw new Exception("user not found");
+        throw new UserException("user not found");
     }
 
     
@@ -36,7 +38,7 @@ public class UserController {
     public User updateUser(@RequestBody User user,@PathVariable Long id) throws Exception{
         Optional<User> otp = userRepository.findById(id);
         if(otp.isEmpty()){
-            throw new Exception("User Not Found with Id :"+id);
+            throw new UserException("User Not Found with Id :"+id);
         }
         User existingUser = otp.get();
         existingUser.setFullName(user.getFullName());
@@ -51,7 +53,7 @@ public class UserController {
 
         Optional<User> otp = userRepository.findById(id);
         if(otp.isEmpty()){
-            throw new Exception("User Not Exist with id"+id);
+            throw new UserException("User Not Exist with id"+id);
         }
         userRepository.deleteById(id);
         return "User deleted successfully with id "+id;
