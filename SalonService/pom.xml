@@ -22,8 +22,8 @@
 		<developer/>
 	</developers>
     <modules>
-        <module>User_service</module>
-    </modules>
+		<module>SalonService</module>
+	</modules>
     <scm>
 		<connection/>
 		<developerConnection/>
