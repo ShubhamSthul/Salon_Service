@@ -11,8 +11,7 @@
 	<groupId>com.starco</groupId>
 	<artifactId>user-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>user-service</name>
+	<name>user-service</name>
 	<description>user microservice for salon booking service</description>
 	<url/>
 	<licenses>
@@ -21,10 +20,7 @@
 	<developers>
 		<developer/>
 	</developers>
-    <modules>
-        <module>User_service</module>
-    </modules>
-    <scm>
+	<scm>
 		<connection/>
 		<developerConnection/>
 		<tag/>
